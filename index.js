@@ -2,6 +2,8 @@
 //e função de prompt para obter o input do usuário.
 'use strict';
 const prompt = require('prompt-sync')({sigint: true});
+var history = []
+
 
 // Função que define o nível do Herói
 function defineLevel(xp) {
@@ -32,9 +34,17 @@ function defineLevel(xp) {
 while (true) {
     let nome = prompt('Insira o nome do herói: ');
     let xp = parseInt(prompt(`Insira a quantidade de XP do ${nome}: `));
-    
-    console.log(`O Herói de nome ${nome} está no nível de ${defineLevel(xp)}\n`);
+    let nivel = defineLevel(xp);
+
+    console.log(`O Herói de nome ${nome} está no nível de ${nivel}\n`);
+
+    history.push([nome, xp, nivel]);
 
     if (parseInt(prompt('Deseja continuar as operações? (1=Sim, 2=Não): ')) == 2)
         break;
 }
+
+console.log('\nHistórico de Heróis:')
+history.forEach((item) => {
+    console.log(`Herói ${item[0]} - ${item[1]}XP - Nível ${item[2]}`)
+})
