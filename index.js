@@ -31,7 +31,7 @@ function defineLevel(xp) {
 // Execução da parte principal do programa
 while (true) {
     let nome = prompt('Insira o nome do herói: ');
-    let xp = parseInt(prompt(`Insira a quatidade de XP do ${nome}: `));
+    let xp = parseInt(prompt(`Insira a quantidade de XP do ${nome}: `));
     
     console.log(`O Herói de nome ${nome} está no nível de ${defineLevel(xp)}\n`);
 
